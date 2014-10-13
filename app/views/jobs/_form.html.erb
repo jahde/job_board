@@ -1,7 +1,14 @@
 <%= form_for @job do |f| %>
+  <% @job.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+  <% end %>
 	<div>
 		<%= f.label :title %>
 		<%= f.text_field :title %>
+	</div>
+	<div>
+		<%= f.label :location %>
+		<%= f.text_field :location %>
 	</div>
 	<div>
 		<%= f.label :description %>

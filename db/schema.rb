@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20141004171253) do
   create_table "jobs", force: true do |t|
     t.text     "title"
     t.text     "description"
+    t.text     "location"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

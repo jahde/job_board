@@ -1,9 +1,16 @@
 <h1>Flatiron Open Jobs</h1>
 
-<% @jobs.each do |job| %>
-	<h3><%= job.title %></h3>
-	<p><%= job.description %></p>
-	<h5><%= link_to "Edit Posting", edit_job_path(job) %></h5>
-	<h5><%= link_to 'Delete Posting', job, method: :delete %></h5>
-<% end %>
-
+<table class="pretty">
+	<tr>
+		<th><%= sortable "title" %></th>
+		<th><%= sortable "location" %></th>
+		<th><%= sortable "description" %></th>
+	</tr>
+	<% for job in @jobs %>
+		<tr>
+			<td><%= job.title %></td>
+			<td><%= job.location %></td>
+			<td><%= job.description %></td>
+		</tr>
+	<% end %>
+</table>

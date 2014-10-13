@@ -17,7 +17,7 @@ group :production do
 end
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 4.0.2'
+gem 'sass-rails', '~> 4.0.3'
 
 gem 'quiet_assets'
 
@@ -43,6 +43,9 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+# Used for displaying active record error messages
+gem 'dynamic_form'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -54,3 +57,8 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Create tables with the data
+gem 'data_tables', '~> 0.1.22'
+
+gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'

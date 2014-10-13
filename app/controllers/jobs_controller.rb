@@ -1,6 +1,12 @@
 class JobsController < ApplicationController
+  helper_method :sort_column, :sort_direction
   def index
-    @jobs = Job.all
+    @jobs = Job.order(sort_column + ' ' + sort_direction)
+    #@jobs = Job.all
+  end
+  
+  def show
+    @job = Job.find(params[:id])
   end
   
   def new
@@ -22,9 +28,27 @@ class JobsController < ApplicationController
     redirect_to jobs_path
   end
   
+  def destroy
+    @job = Job.find(params[:id])
+    @job.destroy
+    redirect_to jobs_path
+  end
+  
+  @data_tables = ActiveRecord::Base.connection.tables
+  
   private
   
+  def sort_column
+    Job.column_names.include?(params[:sort]) ? params[:sort] : "title"
+    #params[:sort] || "name"
+  end
+  
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    #params[:direction] || "asc"
+  end
+  
   def job_params
-    params.require(:job).permit(:title, :description)
+    params.require(:job).permit(:title, :description, :location)
   end
 end
