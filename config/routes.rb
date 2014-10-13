@@ -1,5 +1,7 @@
 JobBoard::Application.routes.draw do
+  get 'tags/:tag', to: 'jobs#index', as: :tag
   resources :jobs
+  root to: 'jobs#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

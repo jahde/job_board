@@ -62,3 +62,6 @@ gem 'dynamic_form'
 gem 'data_tables', '~> 0.1.22'
 
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
+
+gem 'acts-as-taggable-on'
+

@@ -3,6 +3,11 @@ class JobsController < ApplicationController
   def index
     @jobs = Job.order(sort_column + ' ' + sort_direction)
     #@jobs = Job.all
+    if params[:tag]
+      @jobs = Job.tagged_with(params[:tag])
+    else
+      @jobs = Job.all
+    end
   end
   
   def show
@@ -49,6 +54,6 @@ class JobsController < ApplicationController
   end
   
   def job_params
-    params.require(:job).permit(:title, :description, :location)
+    params.require(:job).permit(:title, :description, :location, :tag_list)
   end
 end
