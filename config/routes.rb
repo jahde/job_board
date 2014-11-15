@@ -1,4 +1,5 @@
 JobBoard::Application.routes.draw do
+  devise_for :users
   get 'tags/:tag', to: 'jobs#index', as: :tag
   resources :jobs
   root to: 'jobs#index'

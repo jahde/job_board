@@ -12,7 +12,13 @@
 			<td><%= job.location %></td>
 			<td><%= job.description %></td>
 			<td><%= link_to "View Posting", job_path(job) %><td>
-			<td>Tags: <%= raw job.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %><td>
+			<td><% if job.tag_list.length > 0 %>
+						Tags: <%= raw job.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+					<% end %>
+			<td>
 		</tr>
 	<% end %>
 </table>
+
+
+

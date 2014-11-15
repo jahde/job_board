@@ -9,6 +9,7 @@ gem 'heroku'
 # Use sqlite3 as the database for Active Record
 group :development, :test do 
   gem 'sqlite3'
+  gem 'rspec-rails'
 end
 
 group :production do
@@ -64,4 +65,6 @@ gem 'data_tables', '~> 0.1.22'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 
 gem 'acts-as-taggable-on'
+
+gem 'devise'
 
